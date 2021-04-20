@@ -25,3 +25,15 @@ html{
     border-radius: 1rem;
     box-shadow: 0 1rem  1rem -0.7rem rgba(0,0,0,0.4);
 }
+
+.inner-div h2{
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin: 1rem 0 4rem 0;
+}
+
+.inner-div li{
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    list-style: none;
+}
