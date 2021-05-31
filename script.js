@@ -42,6 +42,7 @@ const option4 = document.querySelector('#option4');
 const submit =  document.querySelector('#submit');
 
 const answers = document.querySelectorAll('.answer');
+const showScore = document.querySelector('#showScore');
 
 let questionCount = 0;
 let score = 0;
@@ -71,6 +72,10 @@ const getcheckAnswer = () =>{
     return answer;
 }
 
+const deselectAll = () =>{
+    answers.forEach((curAnsElem) => curAnsElem.checked = false);
+}
+
 submit.addEventListener('click',() =>{
 
     const checkedAnswer = getcheckAnswer();
@@ -78,5 +83,18 @@ submit.addEventListener('click',() =>{
 
     if (checkedAnswer === quizDB[questionCount].ans){
         score++;
+    }
+    questionCount++;
+
+    deselectAll();
+
+    if(questionCount < quizDB.length){
+        loadQuestion();
+    }else{
+        showScore.innerHTML=`
+            <h3> You Scored ${score}/${quizDB.length}✌️</h3>
+            <button class="btn" onclick="location.reload()">Play Again</button>
+        `;
+        showScore.classList.remove('scoreArea')
     }
 });
